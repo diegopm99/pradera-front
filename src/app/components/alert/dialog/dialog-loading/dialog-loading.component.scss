@@ -1,0 +1,12 @@
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    mat-spinner{
+        margin-bottom: 10px;
+    }
+}
+.mat-spinner-color::ng-deep circle{
+    stroke: #118939;
+}

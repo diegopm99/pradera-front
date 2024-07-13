@@ -1,0 +1,20 @@
+.slcn:hover{
+ background-color: rgb(215, 211, 211);
+ color: rgb(13, 8, 8);
+ transition-duration: 0.5s;
+}
+.inv{
+    transform: scaleX(-1);
+}
+
+.logo{
+    width: 70%;
+}
+.actv.active{
+    background-color: rgb(215, 211, 211);
+    color: rgb(13, 8, 8);
+    border-color: black;
+}
+.pdb{
+    padding-top: 100px;
+}

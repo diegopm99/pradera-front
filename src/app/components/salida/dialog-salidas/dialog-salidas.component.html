@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+    <form #form="ngForm" [formGroup]="salidaform">
+        <div fxLayout="Column" fxFlex="100%">
+            <mat-form-field appearance="fill" fxFlex="100%" >
+                <mat-label>Producto</mat-label>
+                <mat-select placeholder="" formControlName="producto">
+                    <mat-option  [value]="-1">--Ninguno--</mat-option>
+                      <mat-option  *ngFor="let prod of productos" [value]="prod.id">
+                          {{prod?.nombre}}
+                      </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex="100%" >
+                <mat-label>Trabajador</mat-label>
+                <mat-select placeholder="" formControlName="trabajador">
+                    <mat-option  [value]="-1">--Ninguno--</mat-option>
+                      <mat-option  *ngFor="let trab of trabajadores" [value]="trab.id">
+                          {{trab.nombreCompleto}}
+                      </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="100%">
+                <mat-label >Cantidad</mat-label>                           
+                <input matInput  formControlName="cantidad">       
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+
+<div mat-dialog-actions  style="justify-content:end;">
+    <button type="button" (click)="cancel()" mat-raised-button color="">Cancelar</button>
+    <button [disabled]="!form.valid" mat-raised-button (click)="guardar()" color="warn">{{data.boton}}</button>
+</div>
+

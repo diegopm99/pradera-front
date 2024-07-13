@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+    <form #form="ngForm" [formGroup]="trabajadorform">
+        <div fxLayout="Column" fxFlex="100%">
+            <mat-form-field fxFlex="100%">
+                <mat-label >Nombre</mat-label>                           
+                <input (keypress)="validateOnlyLetter($event)" (paste)="onPasteLetter($event)" matInput  formControlName="nombres">       
+            </mat-form-field>
+            <mat-form-field fxFlex="100%">
+                <mat-label >Apellido Paterno</mat-label>                           
+                <input (keypress)="validateOnlyLetter($event)" (paste)="onPasteLetter($event)" matInput  formControlName="apellidop">       
+            </mat-form-field>
+            <mat-form-field fxFlex="100%">
+                <mat-label >Apellido Materno</mat-label>                           
+                <input (keypress)="validateOnlyLetter($event)" (paste)="onPasteLetter($event)" matInput  formControlName="apellidom">       
+            </mat-form-field>
+            <mat-form-field fxFlex="100%">
+                <mat-label >DNI</mat-label>                           
+                <input (keypress)="validateOnlyNumber($event)" (paste)="onPasteNumber($event)" matInput maxlength="8" minlength="8"
+                required="true" formControlName="dni">       
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+
+<div mat-dialog-actions  style="justify-content:end;">
+    <button class="m-1" type="button" (click)="cancel()" mat-raised-button color="">Cancelar</button>
+    <button [disabled]="!form.valid" mat-raised-button (click)="guardar()" color="warn">{{data.boton}}</button>
+</div>
+

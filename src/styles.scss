@@ -1,0 +1,53 @@
+// Material ////////////////////////////////////////////////////////////////////////////7
+@use '@angular/material' as mat;
+@include mat.core();
+$my-primary: mat.define-palette(mat.$indigo-palette, 900);
+$my-accent: mat.define-palette(mat.$red-palette, 700);
+$my-warn: mat.define-palette(mat.$red-palette, 700);
+$my-theme: mat.define-light-theme((
+    color: (
+            primary: $my-primary,
+            accent: $my-accent,
+            warn:$my-warn
+        )
+    ));   
+@include mat.all-component-themes($my-theme);
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+//iconos de angular material
+// https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/#mat-icon-list-category-av
+
+
+
+
+html, body { height: 100%;
+    overflow-x: hidden; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+caption{
+    display: none;
+}
+//cambiar color slide-toogle
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: #1caf2377!important;//Your color
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: green;
+}
+
+.pdntit{
+    padding-top: 100px;
+}
+
+.icon{
+    width: 13%;
+    height: 10%;
+}
+.spc{
+    margin-right:5px;
+}
+.btn-acc{
+    width: 40px;
+    height: 40px;
+}

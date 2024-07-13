@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="usuarioForm">
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Usuario</mat-label>
+      <input matInput formControlName="username" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="password" [disabled]="esActualizacion">
+    </mat-form-field>
+    <div style="margin-top: 20px;">
+      <label>Roles</label>
+      <div *ngFor="let role of data.roles; let i = index">
+        <mat-checkbox  (change)="onCheckboxChange($event, i)"  [checked]="role.checked">
+          {{ role.nombre }}
+        </mat-checkbox>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end;">
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-button [disabled]="!usuarioForm.valid" (click)="guardar()">
+    {{ data.boton }}
+  </button>
+</div>

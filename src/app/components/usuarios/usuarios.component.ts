@@ -109,7 +109,7 @@ export class UsuariosComponent implements OnInit {
               roles: result.usuario.roles.map((role: any) => ({ id: role.id }))
             };
 
-            this.alertService.loadingDialogShow('Registrando Usuario...');
+            this.alertService.loadingDialogShow('Registrando usuario...');
             this.usuarioService.save(data).subscribe(
               (response) => {
                 this.alertService.loadingDialogClose();
@@ -175,7 +175,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   async delete(index: number) {
-    let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este Usuario?');
+    let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este usuario?');
     if (answer) {
       this.usuarioService.delete(index).subscribe(
         response => {

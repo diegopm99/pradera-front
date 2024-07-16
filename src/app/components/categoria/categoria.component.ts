@@ -91,11 +91,11 @@ export class CategoriaComponent implements OnInit {
       let data:any={
         nombre:o.data.nombre
       }
-      this.alertService.loadingDialogShow('Registrando Categoria...');
+      this.alertService.loadingDialogShow('Registrando categoria...');
       this.categoriaService.save(data).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Categoria registrada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
@@ -131,7 +131,7 @@ update(categoria: any) {
         estado = 0;
       }
       categoria.nombre = o.data.nombre;
-      this.alertService.loadingDialogShow('Actualizando Categoria...');
+      this.alertService.loadingDialogShow('Actualizando categoria...');
       this.categoriaService.save(categoria).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
@@ -150,7 +150,7 @@ update(categoria: any) {
 
 
 async delete(index: number) {
-  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar esta Categoria?');
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar esta categoria?');
   if (answer) {
     this.categoriaService.delete(index).subscribe(
       response => {

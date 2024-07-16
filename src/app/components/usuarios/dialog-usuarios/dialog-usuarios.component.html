@@ -20,7 +20,7 @@
   </form>
 </div>
 <div mat-dialog-actions style="justify-content: flex-end;">
-  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button class="m-1" mat-button (click)="cancelar()">Cancelar</button>
   <button mat-button [disabled]="!usuarioForm.valid" (click)="guardar()">
     {{ data.boton }}
   </button>

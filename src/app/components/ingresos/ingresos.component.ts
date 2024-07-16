@@ -90,11 +90,11 @@ export class IngresosComponent implements OnInit {
         cantidad:o.data.cantidad,
         precio: o.data.precio,
       }
-      this.alertService.loadingDialogShow('Registrando Ingreso...');
+      this.alertService.loadingDialogShow('Registrando ingreso...');
       this.ingresosservice.save(data).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Ingreso registrado correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
@@ -137,11 +137,11 @@ update(ingreso: any) {
       ingreso.precio = o.data.precio;
       ingreso.fecha=null;
       console.log(ingreso)
-      this.alertService.loadingDialogShow('Actualizando Ingreso...');
+      this.alertService.loadingDialogShow('Actualizando ingreso...');
       this.ingresosservice.save(ingreso).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Ingreso actualizado correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
@@ -156,7 +156,7 @@ update(ingreso: any) {
 
 
 async delete(index: number) {
-  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este Ingreso?');
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este ingreso?');
   if (answer) {
     this.ingresosservice.delete(index).subscribe(
       response => {

@@ -88,16 +88,16 @@ export class SalidaComponent implements OnInit {
         trabajadorId: o.data.trabajador,
         cantidad: o.data.cantidad,
       }
-      this.alertService.loadingDialogShow('Registrando Salida...');
+      this.alertService.loadingDialogShow('Registrando salida...');
       this.salidaservice.save(data).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Salida Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Salida registrada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Salida Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.")
           this.limpiar();
         }
       );
@@ -136,12 +136,12 @@ update(salida: any) {
       this.salidaservice.save(salida).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Salida Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Salida actualizada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Salida Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.")
           this.limpiar();
         }
       );
@@ -151,7 +151,7 @@ update(salida: any) {
 
 
 async delete(index: number) {
-  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este Salida?');
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este salida?');
   if (answer) {
     this.salidaservice.delete(index).subscribe(
       response => {

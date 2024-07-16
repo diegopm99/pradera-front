@@ -87,11 +87,11 @@ export class ProveedoresComponent implements OnInit {
         nombre:o.data.nombre,
         ruc:o.data.ruc
       }
-      this.alertService.loadingDialogShow('Registrando Proveedor...');
+      this.alertService.loadingDialogShow('Registrando proveedor...');
       this.proveedorService.save(data).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Proveedor Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Proveedor registrado correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
@@ -132,7 +132,7 @@ update(proveedor: any) {
       this.proveedorService.save(proveedor).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Proveedor actualizada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Proveedor actualizado correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
@@ -147,7 +147,7 @@ update(proveedor: any) {
 
 
 async delete(index: number) {
-  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar esta Proveedor?');
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar esta proveedor?');
   if (answer) {
     this.proveedorService.delete(index).subscribe(
       response => {
